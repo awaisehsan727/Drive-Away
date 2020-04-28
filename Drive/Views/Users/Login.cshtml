@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+
+<form class="order-details-form" action="/Users/Login" method="post" novalidate>
+    <div class="inner-form">
+        <h3>Login Here</h3>
+
+        <div class="inner-form__elements">
+            <div class="inner-half">
+                <h3 style="color: red; text-decoration: none;">@ViewData["error"]</h3> 
+                <div class="location">
+                    <h6><label>Email:</label></h6>
+                    <input type="text" id="location1" name="email" value="" placeholder="Email" required>
+                    <!--<span class="glyphicon glyphicon-envelope form-control-feedback"></span>-->
+                </div>
+                <h6><label>Password:</label></h6>
+                <div class="location-drop-off">
+                    <input type="password" class="pasheight" name="password" value="" placeholder="password" required>
+                    <!--<span class="glyphicon glyphicon-lo form-control-feedback"></span>-->
+                </div>
+
+                <div style="margin-top: 14px;" class="form-group">
+                    <button type="submit" class="btn form-control">Login</button>
+                </div>
+                <p style="color: red; text-decoration: none;">@ViewData["login"]</p>
+                <a href="/Users/Signup"><p class="btn form-control">Don't have an account?</p></a>
+               
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+

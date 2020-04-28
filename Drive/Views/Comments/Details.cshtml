@@ -1,0 +1,76 @@
+﻿@model Drive.Models.ContactUs
+@using Drive.Models;
+@{
+    Final_yearEntities db = new Final_yearEntities();
+    User u = new User();
+
+}
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+
+@{
+
+    if (Session["id"] != null)
+    {
+        u = db.Users.Find(Model.Id);
+
+    }
+}
+<div class="container">
+
+    <h2>Details</h2>
+    <div class="">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center" style="font-size:25px;">FeedsBack</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                        <td>@Html.DisplayFor(model => model.Name)</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Email)</th>
+                        <td>@Html.DisplayFor(model => model.Email)</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Message)</th>
+                        <td>@Html.DisplayFor(model => model.Message)</td>
+                    </tr>
+                </tbody>
+              
+            </table>
+        </div>
+    </div>
+    @{
+        u = db.Users.Find(Session["id"]);
+
+        if (Model.Id == u.userId)
+        {
+
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            </p>
+        }
+    }
+    <form class="form-inline col" action="@Url.Action("Reply","Comments",new {id=Model.Id })" method="get">
+
+        <div class="input-group">
+            <textarea class="form-control" type="text" name="reply" placeholder="Search From.." value="">
+                </textarea>
+        </div>
+        <div class="input-group">
+            <button class="btn btn-primary" type="submit">Reply
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+.

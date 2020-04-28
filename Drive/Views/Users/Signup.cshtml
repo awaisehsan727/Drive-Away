@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+
+<form class="order-details-form" action="/Users/Signup" method="post">
+    <div class="inner-form">
+        <h3>Registeration Form</h3>
+
+        <div class="inner-form__elements">
+            <div class="inner-half">
+
+
+
+                <div class="inner-half__width">
+                    <div class="input-date datetimepicker-wrap">
+                        <h6><label>FirstName:</label></h6>
+
+                        <input type="text" placeholder="Fisrt Name" name="fname" required>
+
+                    </div>
+                    <div class="input-time">
+                        <h6><label>LastName:</label></h6>
+
+                        <input type="text" placeholder="Last Name" name="Lname" required>
+
+                    </div>
+                </div>
+                <div class="inner-half__width">
+                    <div class="input-date datetimepicker-wrap">
+                        <h6><label>Password:</label></h6>
+
+                        <input type="password" class="pasheight" placeholder="Password" required name="password" >
+
+                    </div>
+                    <div class="input-time">
+                        <h6><label>ConfirmPassword:</label></h6>
+
+                        <input type="password" class="pasheight" placeholder="Confirm password" name="confirmpass" required>
+                    </div>
+
+                </div>
+                <div class="inner-half__width">
+                    <div class="input-time">
+                        <h6><label>CNIC:</label></h6>
+
+                        <input type="text" class="form-control"  data-inputmask="'mask': '99999-9999999-9'"  placeholder="XXXXX-XXXXXXX-X"   name="CNIC" required>
+
+                    </div>
+                    <div class="input-time">
+                        <h6><label>Email</label></h6>
+
+                        <input type="text" class="form-control" placeholder="Email" name="email" required>
+
+                    </div>
+
+                </div>
+
+                <h6><label>Address:</label></h6>
+
+                <div class="form-group inner-half__width">
+
+                    <textarea placeholder="Address" name="Address" value="" required class="Addressclass"></textarea>
+                </div>
+                <div style="margin-top: 14px;">
+                    <button type="submit" class="btn form-control">SignUp</button>
+                </div>
+                <div style="margin-top: 14px;">
+                    <p style="color: red; text-decoration: none;">@ViewData["error"]</p>
+                    <a href="/Users/Login"><p class="btn form-control">Already have an Account?</p></a>
+                </div>
+            </div>
+          
+            <div>
+               
+            </div>
+
+        </div>
+    </div>
+</form>
+<script>
+    $(":input").inputmask();
+
+</script>

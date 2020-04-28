@@ -1,0 +1,143 @@
+﻿@model IEnumerable<Drive.Models.Booking>
+
+
+@using Drive.Models;
+@{
+    Final_yearEntities db = new Final_yearEntities();
+    User u = new User();
+    Post_Tbl p = new Post_Tbl();
+    Booking b = new Booking();
+}
+
+
+}
+<main id="page-content">
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="breadcrumbs__title">Blog Posts</div>
+                    <div class="breadcrumbs__items">
+                        <div class="breadcrumbs__wrap">
+                            <div class="breadcrumbs__item">
+                                <a href="/Drive/Home" class="breadcrumbs__item-link">Home</a> <span>/</span> <a href="/Drive/Blog" class="breadcrumbs__item-link">Blog Posts</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // Breadcrumbs  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-lg-9 post-list">
+                @foreach (var item in Model)
+                {
+                    p = db.Post_Tbl.Find(item.PostId);
+                    b = db.Bookings.Find(item.BookId);
+                    <article class="post-list__item format-standart postS">
+                        <div class="post-list__item-content">
+
+
+                            <header class="post-list__item-header">
+                                <div class="post-list__item-meta post-block_meta">
+                                    <span class="date"><i class="icon-clock"></i>@Html.DisplayFor(modelItem => p.Date)</span>
+                                    <!--<a href="#" class="comment"><i class="icon-social"></i>3</a>-->
+                                </div>
+                                <div class="social-list">
+                                    <ul class="social-list__icons">
+                                        <span>
+                                            <i class="icon-telephone"></i>@Html.DisplayFor(modelItem => p.PhoneNo)
+                                        </span>
+                                    </ul>
+                                </div>
+
+
+                                <div class="post-list__item-meta post-block_meta">
+                                    <span class="post-list__item-author ">
+                                        <b>
+                                            Captain:
+                                            @{
+                                                p = db.Post_Tbl.Find(item.PostId);
+                                                u = db.Users.Find(p.userId);
+                                                @Html.DisplayFor(modelItem => u.FirstName)
+                                            }
+                                           
+                                        </b>
+                                </span>
+
+
+                            </div>
+
+
+                            <!---->
+
+                            <table>
+                                <tr>
+
+                                    <th>From:</th>
+                                    <td><span class="post-list__item-author">@Html.DisplayFor(modelItem => p.From)</span></td>
+                                </tr>
+                                <tr>
+                                    <th><span class="post-list__item-author">To:</span></th>
+                                    <td><span class="post-list__item-author">@Html.DisplayFor(modelItem => p.To)</span></td>
+                                </tr>
+                                <tr>
+                                    <th><span class="post-list__item-author">Category:</span></th>
+                                    <td><span class="post-list__item-author">@Html.DisplayFor(model => p.Category)</span></td>
+                                </tr>
+                            </table>
+
+
+                        </header>
+                        <div class="post-list__item-desc">
+                            <b><span class="post-list__item-author ">Discription:  @Html.DisplayFor(modelItem => p.Description)</span></b>
+                        </div>
+                        <footer class="post-list__item-footer">
+                            <li> @Html.ActionLink("Details", "Hand", new { id = item.PostId }) </li>
+                            @{
+                                if (Session["id"] != null)
+                                {
+                                    u = db.Users.Find(Session["id"]);
+                                    if (u.RollId == 2 && u.Status!="True")
+                                    {
+                                        u = db.Users.Find(b.userId);
+                        <b><span class="post-list__item-author ">Booked By: @Html.DisplayFor(modelItem => u.FirstName)</span></b>
+                                    }
+                                    if (u.Status != "False" || u.RollId==1)
+                                    {
+                                        u = db.Users.Find(b.userId);
+                                        <b><span class="post-list__item-author ">Done By: @Html.DisplayFor(modelItem => u.FirstName)</span></b>
+                                    }
+                                    if (u.RollId == 2 && u.Status != "True")
+                                    {
+                                        @Html.ActionLink("Cancel", "cancling", new { id = item.PostId })
+
+                                        @Html.ActionLink("Done", "Done", new { id = item.PostId })
+                                    }
+                                    if (u.RollId == 1)
+                                    {
+                                        @Html.DisplayFor(model => p.Status)
+                                    }
+
+                                }
+                            }
+
+
+
+                            @*<a href="/Post/Details" class="btn">READ POST</a>*@
+                          
+                    </footer>
+
+                </div>
+            </article>
+                                        }
+                
+            </div>
+            
+    </div>
+</main>
+
+
+

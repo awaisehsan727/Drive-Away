@@ -1,0 +1,168 @@
+﻿@model IPagedList<Drive.Models.Post_Tbl>
+@using Drive.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    Final_yearEntities db = new Final_yearEntities();
+    User u = new User();
+    Post_Tbl p = new Post_Tbl();
+
+}
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+
+@{
+
+    if (Session["id"] != null)
+    {
+        u = db.Users.Find(Session["id"]);
+
+    }
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<br />
+<div class="container">
+    <div class="container jumbotron">
+        <form class="form-inline col" action="/Post/Index" method="get">
+            <div class="input-group">
+                <input class="form-control" type="text" name="SearchBy" placeholder="Search To.." value="">
+            </div>
+            <div class="input-group">
+                <input class="form-control" type="text" name="Search" placeholder="Search From.." value="">
+            </div>
+            <div class="input-group">
+                <input class="form-control" type="text" name="user" placeholder="Pasenger/Driver.." value="">
+            </div>
+            <div class="input-group">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+
+        </form>
+            <ul class="list-categories list-inline">
+
+
+                @{
+                    if (Session != null)
+                    {
+                        u = db.Users.Find(Session["id"]);
+                        <li>@Html.ActionLink("Passenger", "Index", new { id = 1 }) <span class="count"></span></li>
+                        <li>@Html.ActionLink("Captan","Index", new { id = 2 }) <span class="count"></span></li>
+                        @*<li>@Html.ActionLink("All Post", "Index") <span class="count"></span></li>*@
+                        <li><a href="/Post/Index">All Post</a></li>
+                    }
+                }
+
+
+            </ul>
+       
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().From)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().To)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().PhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Seats)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Category)
+            </th>
+            @{
+                if (Session["id"] != null)
+                {
+                    u = db.Users.Find(Session["id"]);
+                    if (u.RollId == 1)
+                    {
+                        <th>@Html.DisplayNameFor(model => model.First().Status)</th>
+                    }
+                }
+            }
+            <th>Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @{
+                        u = db.Users.Find(item.userId);
+                    }
+                    @Html.DisplayFor(modelItem => u.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.From)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.To)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seats)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Category)
+                </td>
+                @{
+                    if (Session["id"] != null)
+                    {
+                        u = db.Users.Find(Session["id"]);
+                        if (u.RollId == 1)
+                        {
+                            <td>
+                                @Html.DisplayFor(model => item.Status)
+                            </td>
+                        }
+                    }
+                }
+
+                <td>
+                   
+                    @Html.ActionLink("Details", "Details", new { id = item.PostId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PostId }) |
+                    @*@Html.ActionLink("Book", "Book", new { id = item.PostId })*@
+                </td>
+            </tr>
+                    }
+
+    </table>
+
+    <div class="pagination jumbotron">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = Request.QueryString["search"], searchby = Request.QueryString["searchby"], user = Request.QueryString["user"] }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true, DisplayItemSliceAndTotal = true })
+        </div>
+
+</div>

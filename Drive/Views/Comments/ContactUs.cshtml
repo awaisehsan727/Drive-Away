@@ -1,0 +1,58 @@
+﻿@model Drive.Models.ContactUs
+@using Drive.Models;
+@{
+    Final_yearEntities db = new Final_yearEntities();
+    User u = new User();
+
+}
+
+
+@{
+    ViewBag.Title = "Post";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+<!-- // Header -->
+<!-- Content  -->
+<main id="page-content">
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="breadcrumbs__title">Contacts</div>
+                    <div class="breadcrumbs__items">
+                        <div class="breadcrumbs__wrap">
+                            <div class="breadcrumbs__item">
+                                <a href="index.html" class="breadcrumbs__item-link">Home</a> <span>/</span> <a href="contacts.html" class="breadcrumbs__item-link">Contacts</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // Breadcrumbs  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wrap-form">
+                    <h1>Leave a Message</h1>
+                    <form class="contact-form comment-form" action="/Comments/ContactUs" method="post">
+                        <div class="input-wrapper first-child">
+                            <input type="text" class="input-custom input-full" name="name" placeholder="Your name" require>
+                        </div>
+                        <div class="input-wrapper last-child">
+                            <input type="text" class="input-custom input-full" name="email" placeholder="E-mail" required>
+                        </div>
+                        <div class="textarea-wrapper">
+                            <textarea class="textarea-custom input-full" name="Comment" placeholder="Comment" required></textarea>
+                        </div>
+                        <div class="btn-wrapper">
+                            <button type="submit" class="btn btn-form">Send message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

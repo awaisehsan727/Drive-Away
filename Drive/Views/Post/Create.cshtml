@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Post";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+<form action="/Post/Create" method="post" class="order-details-form">
+    <div class="inner-form">
+        <h3>Reservation Form</h3>
+        <div class="inner-form__elements">
+            <div class="inner-half">
+                <h5>New Reservation</h5>
+                <div class="location">
+
+                    <select name="To" required  >
+                        <option >Lahore</option>
+                        <option>Bhatta Chownk</option>
+                        <option>Allama Iqbal Airport</option>
+                        <option>Ichra</option>
+                        <option>R A Bazar</option>
+                        <option>Lahore Lari Adda</option>
+                        <option>Kalma Chownk</option>
+                        <option>Hall Road</option>
+                        <option>Islamabad</option>
+                        <option>Faislabad</option>
+                        <option>Sialkot</option>
+                        <option>Multan</option>
+                        <option>Pak pattan</option>
+                        <option>Kasoor</option>
+                        <option>Gujrawala</option>
+                        <option>Daska</option>
+                        <option>Gujjrat</option>
+                        <option>ShehoPura</option>
+                    </select>
+                   
+                </div>
+                @*<div class="location">
+                    <input type="text" id="location1" name="To" placeholder="From" required>
+                    <i class="icon-placeholder-for-map"></i>
+                </div>*@
+                @*<div class="location-drop-off">
+                    <input type="text" name="From" placeholder="To" required>
+                    <i class="icon-placeholder-for-map"></i>
+                </div>*@
+                <div class="location" >
+
+                    <select name="From" required>
+                        <option>Lahore</option>
+                        <option>Bhatta Chownk</option>
+                        <option>Allama Iqbal Airport</option>
+                        <option>Ichra</option>
+                        <option>R A Bazar</option>
+                        <option>Lahore Lari Adda</option>
+                        <option>Kalma Chownk</option>
+                        <option>Hall Road</option>
+                        <option>Islamabad</option>
+                        <option>Faislabad</option>
+                        <option>Sialkot</option>
+                        <option>Multan</option>
+                        <option>Pak pattan</option>
+                        <option>Kasoor</option>
+                        <option>Gujrawala</option>
+                        <option>Daska</option>
+                        <option>Gujjrat</option>
+                        <option>ShehoPura</option>
+                    </select>
+                </div>
+
+                <div class="inner-half__width" id="bookingForm">
+                    <div class="input-date datetimepicker-wrap">
+                        <input type="text" name="Date" id="datetimepicker1" class="datetimepicker"
+                               placeholder="Pick-up date" required>
+                        <i class="icon-calendar-with-a-clock-time-tools"></i>
+                    </div>
+                    <div class="input-time">
+                        <input type="text" name="Time" id="timepicker1" class="timepicker"
+                               placeholder="Pick-up time" required>
+                        <i class="icon-clock"></i>
+                    </div>
+                </div>
+                <div class="form-group inner-half__width">
+                    <textarea placeholder="Description" name="Description" value="" required class="form-control " id="textarea"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-date ">
+                        <input type="text" name="phone" placeholder="Phone Number" class="postdate form-control" required  data-inputmask="'mask': '0399-99999999'"   type = "number" maxlength = "12" value="">
+                    </div>
+
+                    <div class="passengers-luggage">
+                        <div class="passengers">
+                            <span>Seats</span>
+                            <select name="seat" required>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+
+                        <div class="passengers">
+                            <span>Cetegories</span>
+                            <select name="Cat" required>
+                                <option>Passenger</option>
+                                <option>Captain</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 14px;">
+                    <button type="submit" class="btn form-control">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(":input").inputmask();
+
+</script>
+

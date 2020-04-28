@@ -1,0 +1,106 @@
+﻿@model Drive.Models.Post_Tbl
+@using Drive.Models;
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Final_yearEntities db = new Final_yearEntities();
+    User u = new User();
+
+}
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+@{
+
+    if (Session["id"] != null)
+    {
+        u = db.Users.Find(Model.userId);
+
+    }
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <!-- Example DataTables Card-->
+       <div class="container">
+
+    <h2>Details</h2>
+    <div class="">
+     <div class="panel panel-primary">
+    <div class="panel-heading text-center" style="font-size:25px;">Post</div>
+             <table class="table">
+        <thead>
+            <tr>
+                <th >Name</th>
+                <td >@Html.DisplayFor(modelItem => u.FirstName)</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.From)</th>
+                <td >@Html.DisplayFor(model => model.From)</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th >@Html.DisplayNameFor(model => model.To)</th>
+                <td >@Html.DisplayFor(model => model.To)</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th >@Html.DisplayNameFor(model => model.Date)</th>
+                <td >@Html.DisplayFor(model => model.Date)</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th >@Html.DisplayNameFor(model => model.Time)</th>
+                <td >@Html.DisplayFor(model => model.Time)</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th >@Html.DisplayNameFor(model => model.Description)</th>
+                <td >@Html.DisplayFor(model => model.Description)</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th >@Html.DisplayNameFor(model => model.PhoneNo)</th>
+                <td >@Html.DisplayFor(model => model.PhoneNo)</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th >@Html.DisplayNameFor(model => model.Seats)</th>
+                <td >@Html.DisplayFor(model => model.Seats)</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th >@Html.DisplayNameFor(model => model.Category)</th>
+                <td >@Html.DisplayFor(model => model.Category)</td>
+            </tr>
+        </tbody>
+   </table>
+         </div>
+         </div>
+         
+           @{
+               u = db.Users.Find(Session["id"]);
+            
+               if (Model.userId== u.userId)
+               {
+
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.PostId }) |
+            </p>
+               }
+        } 
+
+           </div>
+          
+.

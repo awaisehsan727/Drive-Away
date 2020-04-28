@@ -1,0 +1,151 @@
+﻿@model IPagedList<Drive.Models.User>
+@using Drive.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    Final_yearEntities db = new Final_yearEntities();
+    User u = new User();
+}
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+@{
+
+    if (Session["id"] != null)
+    {
+        u = db.Users.Find(Session["id"]);
+
+    }
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<br />
+    <div class="container">
+        <div class="container jumbotron">
+
+            <form class="form-inline col" action="/Users/Index" method="get">
+
+                <div class="input-group">
+                    <input class="form-control" type="text" name="Search" placeholder="Search From.." value="">
+                </div>
+                <div class="input-group">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    <!-- Example DataTables Card-->
+    <table class="table">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().LastName)
+            </th>
+            @{
+                if (u.RollId == 2)
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().password)
+                    </th>
+
+                }
+            }
+            <th>
+                @Html.DisplayNameFor(model => model.First().Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().CNIC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().RollId)
+            </th>
+            <th>
+                Action
+            </th>
+
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    @{
+                        if (u.RollId == 2)
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => item.password)
+                            </td>
+
+                        }
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CNIC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RollId)
+                    </td>
+
+
+                    @{
+                        if (Session["id"] != null)
+                        {
+                            u = db.Users.Find(Session["id"]);
+                            if (u.RollId == 1)
+                            {
+                                <td>
+                                 
+                                   @Html.ActionLink("Details", "Details", new { id = item.userId })                                             |
+                                   @Html.ActionLink("Delete", "Delete", new { id = item.userId })
+
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                   @Html.ActionLink("Edit", "Edit", new { id = item.userId })
+
+                                </td>
+                            }
+                        }
+                    }
+
+                </tr>
+            </tbody>
+                        }
+
+    </table>
+        <div class="pagination jumbotron">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = Request.QueryString["search"] }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true, DisplayItemSliceAndTotal = true })
+
+        </div>
+   
+</div>
+
+
+
+

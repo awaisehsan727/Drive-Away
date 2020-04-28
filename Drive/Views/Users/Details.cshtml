@@ -1,0 +1,59 @@
+﻿@model Drive.Models.User
+@using Drive.Models;
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+            <!-- Example DataTables Card-->
+      
+                <div class="container">
+                    <h2>User Profile</h2>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center" style="font-size:25px;">Profile</div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                                    <td>@Html.DisplayFor(model => model.FirstName)</td>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                                    <td>@Html.DisplayFor(model => model.LastName)</td>
+
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.password)</th>
+                                    <td>@Html.DisplayFor(model => model.password)</td>
+
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Address)</th>
+                                    <td>@Html.DisplayFor(model => model.Address)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.CNIC)</th>
+                                    <td>@Html.DisplayFor(model => model.CNIC)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                                    <td>@Html.DisplayFor(model => model.Email)</td>
+                                </tr>
+                                @*<tr>
+                                    <th>@Html.DisplayNameFor(model => model.RollId)</th>
+                                    <td>@Html.DisplayFor(model => model.RollId)</td>
+                                </tr>*@
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.userId }) |
+
+                    </p>
+                </div>
+              
+               
+       

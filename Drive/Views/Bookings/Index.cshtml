@@ -1,0 +1,88 @@
+﻿@model IPagedList<Drive.Models.Booking>
+@using Drive.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    Final_yearEntities db = new Final_yearEntities();
+    User u = new User();
+    Post_Tbl p = new Post_Tbl();
+
+}
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+
+@{
+
+    if (Session["id"] != null)
+    {
+        u = db.Users.Find(Session["id"]);
+
+    }
+}
+
+
+
+
+<br />
+<div class="container">
+    <div class="container jumbotron">
+      <h3>Welcome To The Booking</h3>
+        </div>
+    
+
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.First().userId)*@
+                Booked By User
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.First().PostId)*@
+                Post User
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().status)
+            </th>
+            <th>Action</th>
+           
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                   @{
+                       u = db.Users.Find(item.userId);
+
+                    @Html.DisplayFor(modelItem => u.FirstName)
+
+                }  
+                </td>
+                <td>
+                  @{
+                    p = db.Post_Tbl.Find(item.PostId);
+                    u = db.Users.Find(p.userId);
+
+                    @Html.DisplayFor(modelItem => u.FirstName)
+                    }  
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BookId })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="pagination jumbotron">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true, DisplayItemSliceAndTotal = true })
+
+    </div>
+
+</div>

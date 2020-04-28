@@ -1,0 +1,58 @@
+.formheight{
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 70px;
+
+
+}
+.modalwidthLogin{
+    width: auto;
+    opacity: 0.8999;
+    background-color: #a977a7;
+
+}
+.loginfield{
+    margin:auto;
+
+
+}
+.sigup{
+    margin: auto;
+}
+.margtop{
+    margin-top: 60px;
+}
+.modalwidthsignup{
+    width: auto;
+    opacity: 0.8999;
+    background-color: #a977a7;
+    height: 734px;
+}
+
+
+.postdate{
+    margin-top: 23px;
+
+}
+.postS{
+    border: 2px solid;
+    border-width: 1px;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+.pasheight{
+    max-height: 40px;
+    width: 100%;
+}
+.Addressclass{
+    min-height: 74px;
+    height: 74px;
+
+}

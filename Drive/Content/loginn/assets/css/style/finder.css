@@ -1,0 +1,414 @@
+/*
+Project Name: jobseek
+File: Fw.css
+Version: 1.0
+Date: 07/07/2017
+Author Name: t3theme
+Author URI:themeforest.net/user/t3theme/portfolio
+Email:ndktheme@gmail.com
+
+------------------------
+NOTE:
+PLEASE DO NOT EDIT THIS CSS, IF YOU NEED USE "CUSTOM.CSS" FILE FOR WRITING YOUR CUSTOM CSS.
+I WILL RELEASE FUTURE UPDATES SO IT WILL OVERWRITE THIS FILE IT'S BETTER USE "CUSTOM.CSS".	
+
+Content of tables
+	1. Reset
+	2. Elements
+	3. Module
+	4. Bootstrap
+	5. Plugin
+
+------------------------*/
+
+*{
+	font-size:15px;
+	font-family:'roboto', sans-serif;
+}
+label, strong{
+    font-weight:500
+
+}
+/*Header*/
+.main-header{
+	box-shadow:1px 1px 1px 0px #ddd;
+}
+.header-absolute{
+    height:129px;
+}
+/*Menu*/
+/*Search*/
+/*Footer*/
+/*browse-category*/
+.lh {
+    border-bottom: 1px dashed #ccc;
+    text-align: center;
+    padding: 25px 0px;
+}
+.lh  p{
+	font-size:18px;
+}
+ul strong{
+	display:block;
+	float:left;
+	font-weight:500;
+	width:150px;
+}
+.browse-category,.browse-category1{
+	padding:60px 0px 60px 0px;
+	background:#fafafa;
+}
+.browse-category .thumb-item{
+	box-shadow:1px 1px 2px 0px #ddd;
+	background:#fff;
+	border-radius:0px;
+	margin-bottom:1px;
+	margin-right:1px;
+	padding:50px 20px 40px 20px;
+}
+.browse-category .thumb-item i{
+	color:#dc4c46;
+}
+.browse-category .ht-btn{
+	border:1px solid #eee;
+	background:#fff;
+	border-radius:3px;	
+}
+.browse-category1 .thumb-item{
+	border:1px solid #eee;
+	border-radius:3px;
+}
+.browse-category1 .thumb-item i{
+	color:#dc4c46;
+}
+.ht-pagination {
+	margin-top:30px;
+	width:100%;
+	background:#fdfdfd;
+	box-shadow:1px 1px 2px 0px #ddd;
+	border-radius:0px;
+	padding:15px;
+}
+.list-2 .thumb-item{
+	box-shadow:1px 1px 2px 0px #ddd;
+	background:#fff;
+	border-radius:0px;
+	margin-bottom:1px;
+	text-align:left;
+	padding:30px 25px;
+}
+.list-2 .thumb-item .heading{
+	padding:10px 0px 0px 0px;
+	font-weight:500;
+	font-size:16px;
+}
+.list-2 .thumb-item i{
+	width:30px;
+	font-size:35px;
+	float:left;
+	margin-right:10px;
+}
+.title-group-1 h3{
+	font-weight:300;
+	color:#ccc;
+}
+.title-group-1 h2{
+	color:#4f84c4;
+	font-size:50px;
+	padding-bottom: 10px;
+}
+.title{
+	font-size:25px;
+	padding-top:0px;
+	font-weight:500;
+	margin-bottom:20px;
+}
+/*block-2*/
+.title-group{
+	margin-bottom:50px;
+}
+.title-group h2,.title-group h1{
+    font-weight: bold;
+	font-size:40px;
+    text-transform: uppercase;
+    font-family: 'poppins', sans-serif;
+	padding-bottom:10px;
+}
+.title-group h1{
+	color:#4f84c4;
+}
+.title-group .wrap-img{
+	width:150px;
+	height:150px;
+	overflow:hidden;
+	border-radius:150px;
+	margin-bottom:20px;
+	display:inline-block;
+}
+.block{
+	padding:60px 0px;
+	background:#fafafa;
+}
+.block-2{
+	padding:60px 0px;
+}
+.block-2 .thumb-item{
+	padding:70px 40px;
+}
+.block-2 .thumb-item i{
+	font-size:60px;
+}
+.block-2 .thumb-item .heading{
+	font-size:35px;
+	font-weight:400;
+}
+.block-2 .thumb-item .ht-btn{
+	background:#fff;
+	margin-top:20px;
+	border-radius:3px;
+}
+.block-2 .thumb-item::before{
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:100px;
+	height:100px;
+	border-left:12px solid #fff;
+	border-bottom:12px solid #fff;
+	content:'';
+	z-index:1;
+}
+.block-2 .thumb-item::after{
+	position:absolute;
+	top:0px;
+	right:0px;
+	width: 0; 
+	height: 0;
+	border-left: 50px solid transparent;
+	border-bottom: 50px solid transparent; 
+	border-top:50px solid #fff; 
+	border-right:50px solid #fff; 
+	content:'';
+	z-index:1;
+}
+.block-2.bg-fa .thumb-item::before{
+	border-left:12px solid #fafafa;
+	border-bottom:12px solid #fafafa;
+}
+.block-2.bg-fa .thumb-item::after{
+	border-top:50px solid #fafafa; 
+	border-right:50px solid #fafafa; 
+
+}
+.list-category li{
+	padding:0px;
+}
+.list-category li a {
+	border-bottom:1px dashed #eee;
+	padding:10px 0px;
+	display:block;
+	width:100%;
+}
+.pricing-table{
+	background:#555;
+	padding:60px 0px;
+}
+.pricing-table li{
+	border-bottom:1px dashed #eee;
+}
+.box{
+	box-shadow:1px 1px 2px 0px #ddd;
+	border:0px;
+	border-radius:0px;
+}
+.block-3{
+	padding-top:60px;
+	text-align:center;
+}
+.block-3 .thumb-item i{
+	font-size:60px;
+}
+.block-3 .thumb-item .heading{
+	text-transform:uppercase;	
+}
+.job{
+	padding:60px 0px;
+}
+.job .box-item{
+	padding:25px;
+	margin-bottom:1px;
+	border-left:5px solid rgb(91, 192, 222);
+	box-shadow:1px 1px 2px 0px #ddd;
+}
+.job .box-item:nth-child(2n+1) {
+    background: #fdfdfd;
+	border-left: 5px solid rgb(217, 83, 79);
+}
+.job .box-item .heading{
+	font-size:20px;	
+	padding-bottom:5px;
+	font-weight:500;
+	color:#4f84c4;
+}
+.job .box-item .heading span{
+	float:right;
+	font-size:14px;
+	font-weight:normal;
+	color:#999;
+	margin-top:5px;
+}
+/*newsletter-1*/
+.newsletter-1 {
+	padding:60px 0px;
+}
+.newsletter-1 h3{
+	font-weight:normal;
+	font-size:30px;
+}
+.newsletter-1 h3 i{
+	margin-right:10px;
+}
+.newsletter-1 input{
+	border:2px solid #555;
+	width:100%;
+}
+.newsletter-1 button{
+	margin-top:0px;
+	color:#fff;
+	background:#555;
+}
+/*testimonial-1*/
+.testimonial-1{
+	padding:60px 0px;
+}
+.testimonial-1 .testimonial-item .img{
+	width:200px;
+	height:200px;
+	border-radius:200px;
+	overflow:hidden;
+}
+.testimonial-1 .testimonial-item .img img{
+	width:100%;
+}
+.testimonial-1 .testimonial-txt{
+	font-size:18px;
+}
+.testimonial-1 .testimonial-footer strong{
+	color:#feda00;
+}
+/*blog*/
+.blog-1{
+	padding:60px 0px;
+	background:#f5f5f5;
+}
+/*10. Background*/
+
+.bg-image-1{
+	background-image:url('../../../images/cyber attack 4.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.bg-image-2{
+	background-image:url('../../../images/background.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.bg-image-3{
+	background-image:url('../../images/dawn-2178296_1920.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.bg-image-4{
+	background-image:url('../../images/hot-air-balloon-2223282_960_720.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.bg-image-after-1::after{
+	background-image:url();
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.bg-image-after-2::after{
+	background-image:url();
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.bg-image-after-3::after{
+	background-image:url();
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.bg-image-after-4::after{
+	background-image:url();
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+.search-2{
+	margin-top:-143px;
+}
+/*9.1 Product*/
+.product{}
+.product-item{}
+/*9.1 Blog*/
+/*---12. Blog---*/
+.blog-item{
+}
+/*9.1 Newsletter*/
+.newsletter{
+	
+}
+.newsletter h3{
+	
+}
+.newsletter h3 i{
+	
+}
+.newsletter input{
+	border:2px solid #eee;
+} 
+.newsletter button{
+	background:#333;
+}
+/*9.1 Testimonial*/
+.testimonial-item{}
+/*9.1 Brand logo*/
+/*9.1 Counting*/
+/*9.1 Contact*/
+.contact-info{}
+.form-contact{}
+#google-map{}
+
+/*///7.media query///*/
+@media (max-width: 1200px){}
+@media (min-width : 768px) and (max-width: 992px){}
+@media (max-width:768px){
+	.main-banner{
+		height:600px!important;
+	}
+	.search-1{
+		background:#4f84c4;
+		padding:20px;
+	}
+	.search-1 .form-item{
+		margin-bottom:20px;
+		height:50px;
+		border-radius:5px;
+		border:1px solid #444;
+	}
+	.banner .caption .search-1 .ht-btn{
+		width:100%;
+		color:#fff!important;
+		margin-top:0px;
+		height:55px;
+		background:#222!important;
+	}
+	.bg-image-3{
+		
+	}
+	.title-group h1, .title-group h2,.block-2 .thumb-item .heading{
+		font-size:25px;
+	}
+	.search-2{
+		margin-top:30px;
+	}
+}

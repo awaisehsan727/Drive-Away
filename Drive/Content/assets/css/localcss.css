@@ -1,0 +1,34 @@
+.formheight{
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 70px;
+
+
+}
+.modalwidthLogin{
+    width: auto;
+    opacity: 0.8999;
+    background-color: #a977a7;
+
+}
+.loginfield{
+    margin:auto;
+
+
+}
+.sigup{
+    margin: auto;
+}
+.margtop{
+    margin-top: 60px;
+}
+.modalwidthsignup{
+    width: auto;
+    opacity: 0.8999;
+    background-color: #a977a7;
+    height: 734px;
+}
+.textarea{
+    min-height: 80px;
+    font-size: 22px;
+}

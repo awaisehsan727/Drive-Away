@@ -1,0 +1,193 @@
+﻿ @model IPagedList<Drive.Models.Post_Tbl>
+@using Drive.Models;
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    Final_yearEntities db = new Final_yearEntities();
+    User u = new User();
+
+}
+
+@{
+
+    if (Session["id"] != null)
+    {
+        u = db.Users.Find(Session["id"]);
+
+    }
+}
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+<main id="page-content">
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="breadcrumbs__title">Blog Posts</div>
+                    <div class="breadcrumbs__items">
+                        <div class="breadcrumbs__wrap">
+                            <div class="breadcrumbs__item">
+                                <a href="/Drive/Home" class="breadcrumbs__item-link">Home</a> <span>/</span> <a href="/Drive/Blog" class="breadcrumbs__item-link">Blog Posts</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- // Breadcrumbs  -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-lg-9 post-list">
+               @foreach (var item in Model)
+               {
+                 <article class="post-list__item format-standart postS">
+                    <div class="post-list__item-content">
+                        
+                        
+                            <header class="post-list__item-header">
+                                <div class="post-list__item-meta post-block_meta">
+                                    <span class="date"><i class="icon-clock"></i>@Html.DisplayFor(modelItem => item.Time)</span>
+                                    <!--<a href="#" class="comment"><i class="icon-social"></i>3</a>-->
+                                </div>
+                                <div class="social-list">
+                                    <ul class="social-list__icons">
+                                        <span><i class="icon-telephone"></i>@Html.DisplayFor(modelItem => item.PhoneNo)</span>
+                                    </ul>
+                                </div>
+
+                                <br />
+                                <div class="post-list__item-meta post-block_meta">
+                                    <span class="post-list__item-author ">Captain:@{
+                                        u = db.Users.Find(item.userId);
+                                    }
+                                    @Html.DisplayFor(modelItem => u.FirstName)</span>
+
+
+                                </div>
+
+
+                                <!---->
+
+                                <table>
+                                    <tr>
+
+                                        <th>From:</th>
+                                        <td><span class="post-list__item-author">@Html.DisplayFor(modelItem => item.From)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th><span class="post-list__item-author">To:</span></th>
+                                        <td><span class="post-list__item-author">@Html.DisplayFor(modelItem => item.To)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th><span class="post-list__item-author">Category:</span></th>
+                                        <td><span class="post-list__item-author">@Html.DisplayFor(model => item.Category)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th><span class="post-list__item-author">Date:</span></th>
+                                        <td><span class="post-list__item-author">@Html.DisplayFor(model => item.Date)</span></td>
+                                    </tr>
+                                </table>
+
+
+                            </header>
+                            <div class="post-list__item-desc">
+                                <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                            </div>
+                            <footer class="post-list__item-footer">
+                                <li> @Html.ActionLink("Details", "Hand", new {id=item.PostId }) </li>
+                               
+                                        @{
+                                            if (Session["id"] != null)
+                                            {
+                                                u = db.Users.Find(Session["id"]);
+
+                                                if (u.RollId == 2 && u.Status == "True")
+                                                {
+                                                    @Html.ActionLink("Book Now", "Booking", new { id = item.PostId })
+                                                }
+                                                else if (u.RollId == 1)
+                                                {
+
+                                                    <h5>Status: @Html.DisplayFor(model => item.Status)</h5>
+
+                                                }
+                                            }
+                                        }
+                               
+                            
+
+                                <div class="social-list">
+                                    
+                                </div>
+                            </footer>
+
+                    </div>
+                </article>
+                }
+                <div class="pagination">
+                    <ul>
+                        @Html.PagedListPager(Model, page => Url.Action("Blog", new { page, search = Request.QueryString["search"], searchby = Request.QueryString["searchby"], user = Request.QueryString["user"] }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true, DisplayItemSliceAndTotal = true })
+
+                    </ul>
+                </div>
+            </div>
+            <aside class="col-xs-12 col-md-4 col-lg-3 sidebar" id="sidebar">
+                <div class="sidebar-block">
+                  
+                    <form class="form-default" action="/Drive/Blog" method="get">
+                        <label>Search by cities</label>
+                        <div class="tt-form-search">
+                            <input type="text" class="form-control" name="SearchBy" value="" placeholder="From">
+                            <h3><i class="icon-placeholder-for-map"></i></h3>
+                        </div>
+                        <div class="tt-form-search">
+                            <input type="text" class="form-control" value="" name="Search" placeholder="To">
+                            <h3><i class="icon-placeholder-for-map"></i></h3>
+                        </div>
+                        <div class="passenger">
+                            <span>Cetegories</span>
+                            <select name="Cat" value="" style="background-color:lightgrey; border-radius:6px;" required>
+                               
+                                <option>Passenger</option>
+                                <option>Driver</option>
+
+                            </select>
+                        </div>
+
+                        <button type="submit" style="margin-top: 10px;" class="btn form-control  ">GO</button>
+                    </form>
+                    <a href="/Post/Create"> <button type="button" style="margin-top: 10px;" class="btn form-control  ">Create Post</button></a>
+                </div>
+
+
+                <div class="sidebar-block">
+                    <h3>Post Categories</h3>
+                    <ul class="list-categories">
+                        
+
+                        @{
+                            if (Session != null)
+                            {
+                                u = db.Users.Find(Session["id"]);
+                                <li>@Html.ActionLink("Passenger", "Pas", new { id = 1 }) <span class="count"></span></li>
+                                <li>@Html.ActionLink("Captan", "Pas", new { id = 2 }) <span class="count"></span></li>
+
+                                if (u.RollId == 2 ||u.RollId==1)
+                                {
+                        <li>@Html.ActionLink("Booked Post", "MyBook","Drive" ) <span class="count"></span></li>
+                                }
+                            }
+                        }
+                       
+               
+                    </ul>
+                </div>
+                        </aside>
+                        </div>
+                    </div>
+</main>
+

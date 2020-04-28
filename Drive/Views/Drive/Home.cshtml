@@ -1,0 +1,187 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/Drive.cshtml";
+}
+
+    <main id="page-content">
+        <!-- Slider -->
+        <div class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider">
+                <img src="~/content/rent/assets/images/slider/slide_1.jpg" title="#htmlcaption1"
+                     data-thumb="assets/images/slider/slide_1.jpg" alt="" />
+                <img src="~/content/rent/assets/images/slider/slide_2.jpg" title="#htmlcaption2"
+                     data-thumb="assets/images/slider/slide_2.jpg" alt="" />
+                <img src="~/content/rent/assets/images/slider/slide_3.jpg" title="#htmlcaption3"
+                     data-thumb="assets/images/slider/slide_3.jpg" alt="" />
+            </div>
+            <div id="htmlcaption1" class="nivo-caption">
+                <div class="nivo-caption__inner">
+                    <div class="text">
+                        <h1 class="showtext showtext__h1">Trusted <br>by 5 Million<br> Customers<br> &amp; Counting</h1>
+                        <span class="showtext showtext__link"><a href="/Post/Create">Start your travel planning here!</a></span>
+                    </div>
+                </div>
+            </div>
+            <div id="htmlcaption2" class="nivo-caption">                
+                <div class="nivo-caption__inner left-side">
+                    <div class="text">
+                        <h1 class="showtext showtext__h1">Hi Riders!!Share<br>share journey your <br>with DriveAway </h1>
+                        <span class="showtext showtext__link">
+                            <a href="/Post/Create"  class="btn">Post Your Journey</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div id="htmlcaption3" class="nivo-caption">
+                <div class="nivo-caption__inner  left-side">
+                    <div class="text">
+                        <h1 class="showtext showtext__h1">Treat Yourself:<br>with a Luxury<br>Journey</h1>
+                        <span class="showtext showtext__link">
+                            <a href="/Drive/Blog">click to book a<br> luxury journey</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--booking for end-->
+        <div class="parallax_box">
+            <figure class="thumbnail move_img wow slideInLeft" data-wow-delay="0.5s"></figure>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 col-lg-push-6">
+                        <h1>Welcome</h1>
+                        <p>
+                            Shareing a journey just got easier with the reliable service of Drive Share Services! Having covered all
+                            the 50 states in America, we offer the finest choice of vehicles ranging from economy to
+                            luxury.
+                        </p>
+                        <p>
+                            We have tied up with renowned car rental brands so that we can provide our customers with the
+                            most economic car rental deals along with world class customer service.
+                        </p>
+                        <ul class="list__marker">
+                            <li>Best price guarantee</li>
+                            <li>No cancellation or amendment fees</li>
+                            <li>No hidden extras to pay - theft and damage cover included</li>
+                        </ul>
+                        @*@Html.ActionLink("Read more", "Services","Drive" )*@
+                        <a href="/Drive/Services" class="btn">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row info-box">
+                <div class="col-xs-12">
+                    <article class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.2s">
+                        <h1>Start your travel planning here</h1>
+                        <span class="text-link">Drive away with more money in your pockets and more time on your itinerary.</span>
+                        <a href="/Post/Create" class="btn">BOOK NOW</a>
+                        <a href="/Comments/ContactUs" class="btn invert">EMAIL US</a>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="blog-posts-carousel">
+            <div class="container">
+                
+                <div class="swiper-container swiper-container-blog">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide post-item">
+                            <div class="post-item__inner">
+                                <figure class="thumbnail">
+                                    <img src="~/content/rent/assets/images/item_img-1.jpg" alt="">
+                                </figure>
+                                <div class="post-item__content">
+                                    <h4>Finding the Journey</h4>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide post-item">
+                            <div class="post-item__inner">
+                                <figure class="thumbnail">
+                                    <img src="~/content/rent/assets/images/item_img-2.jpg" alt="">
+                                </figure>
+                                <div class="post-item__content">
+                                    <h4>Best way to money and time</h4>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide post-item">
+                            <div class="post-item__inner">
+                                <figure class="thumbnail">
+                                    <img src="~/content/rent/assets/images/item_img-3.jpg" alt="">
+                                </figure>
+                                <div class="post-item__content">
+                                    <h4>Get confirmation by email</h4>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide post-item">
+                            <div class="post-item__inner">
+                                <figure class="thumbnail">
+                                    <img src="~/content/rent/assets/images/item_img-1.jpg" alt="">
+                                </figure>
+                                <div class="post-item__content">
+                                    <h4>Contact us without login</h4>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide post-item">
+                            <div class="post-item__inner">
+                                <figure class="thumbnail">
+                                    <img src="~/content/rent/assets/images/item_img-2.jpg" alt="">
+                                </figure>
+                                <div class="post-item__content">
+                                    <h4>Hey! why your are trevelling alone when you have "Drive Away"</h4>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide post-item">
+                            <div class="post-item__inner">
+                                <figure class="thumbnail">
+                                    <img src="~/content/rent/assets/images/item_img-3.jpg" alt="">
+                                </figure>
+                                <div class="post-item__content">
+                                    <h4>Finding Cheap Rental Cars</h4>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-blog"></div>
+                </div>
+                <span class="swiper-button-next2 swiper-button-next"><i class="icon-left-arrow2"></i></span>
+                <span class="swiper-button-prev2 swiper-button-prev"><i class="icon-left-arrow"></i></span>
+            </div>
+        </section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="phone-box wow zoomIn">
+                        <h1>Join Us and Save on Drive Away!</h1>
+                        <span class="text-link">Move with Comfort with Drive Away, For any help Contact Us</span>
+                        <h3 class="phone-box__number">
+                            Call Now: <span><i class="icon-telephone"></i> 0303-3009500</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="car-info-box" data-wow-duration="1s" data-wow-delay="1s">
+            <div class="car-info-box__description">
+                <div class="desc-inner">
+                    <h1>Drive Away</h1>
+                    <span class="text-link">Search for the desired Journey</span>
+                    <p>
+                    User can creat his account and then User can search for his desired jouney. User can searc post as a captan and as a passenger  </p>
+                </div>
+            </div>
+            <figure class="car-info-box__thumb has-second-img">
+                <img src="~/content/rent/assets/images/car_hire.jpg" alt="" class="first-fade">
+                <img src="~/content/rent/assets/images/car_hire1.jpg" alt="" class="second-fade">
+            </figure>
+        </section>
+    </main>
